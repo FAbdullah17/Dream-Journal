@@ -1,0 +1,68 @@
+DreamSense – Where Dreams meet AI Intuition
+
+1. User Submits Dream
+   ↓
+2. \[Frontend (Next.js)]
+   ⤷ Collect dream text + mood (optional)
+   ⤷ Send request to FastAPI backend
+   ↓
+3. \[FastAPI Backend Receives Request]
+   ⤷ Route: /analyze\_dream
+   ↓
+4. \[LangGraph Pipeline Begins]
+   ├──► Node 1: spaCy NLP Symbol Extractor
+   │      ⤷ Extract key objects/concepts (e.g., snake, darkness)
+   │
+   ├──► Node 2: Keyword Matcher & CSV Lookup
+   │      ⤷ Check if similar dream symbols exist in CSV
+   │      ⤷ If match found → retrieve related past interpretation
+   │      ⤷ Else → continue to fresh analysis
+   │
+   ├──► Node 3: Context Construction & PromptTemplate
+   │      ⤷ Build LLaMA 3 prompt using:
+   │         - Extracted symbols
+   │         - User's mood
+   │         - Previous memory (LangChain BufferMemory)
+   │      ⤷ Prompt includes instruction to generate:
+   │         - Symbolic meaning
+   │         - Emotional meaning
+   │         - Cultural/psychological interpretation
+   │
+   ├──► Node 4: LLaMA 3 (via Groq API)
+   │      ⤷ AI generates human-like dream interpretation
+   │
+   ├──► Node 5: Dream-to-Image Prompt Construction
+   │      ⤷ Build visual prompt (via PromptTemplate) using extracted symbols
+   │
+   ├──► Node 6: Stable Diffusion API
+   │      ⤷ Generate dream image based on symbols/emotions
+   ↓
+5. \[LangGraph Returns Output]
+   ⤷ JSON:
+   {
+   "symbols": \[...],
+   "interpretation": "...",
+   "image\_url": "..."
+   }
+   ↓
+6. \[FastAPI Endpoint Sends Response]
+   ↓
+7. \[Frontend Displays Results]
+   ⤷ Show:
+
+   * Extracted symbols
+   * Interpretation text
+   * Generated dream image
+     ↓
+8. \[CSV Logging]
+   ⤷ Append new dream entry to dreams.csv
+   ⤷ Store:
+
+   * dream\_id
+   * dream\_text
+   * extracted\_keywords
+   * interpretation
+   * timestamp
+     ↓
+9. \[LangChain Memory]
+   ⤷ Store last 5 dream conversations per user in BufferMemory
