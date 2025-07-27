@@ -1,4 +1,4 @@
-# 🌙 DreamSense - AI-Powered Dream Interpretation & Lucid Coaching Platform
+# 🌙 Dream Journal - AI-Powered Dream Interpretation & Lucid Coaching Platform
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://python.org)
@@ -8,9 +8,9 @@
 
 > 🔮 **Unlock the secrets of your subconscious mind through AI-powered dream analysis, psychological profiling, and lucid dreaming coaching.**
 
-DreamSense is a sophisticated, multi-modal cognitive platform that transcends typical dream interpretation. By blending symbolic reasoning, advanced language models, and profound psychological insights, this platform reveals the intricate messages your subconscious mind communicates through dreams. Whether your dreams involve fantastical flights or challenging encounters, DreamSense helps you uncover the emotional, psychological, and cultural foundations of these powerful nocturnal experiences.
+DreamJournal is a sophisticated, multi-modal cognitive platform that transcends typical dream interpretation. By blending symbolic reasoning, advanced language models, and profound psychological insights, this platform reveals the intricate messages your subconscious mind communicates through dreams. Whether your dreams involve fantastical flights or challenging encounters, DreamSense helps you uncover the emotional, psychological, and cultural foundations of these powerful nocturnal experiences.
 
-![DreamSense Demo](samples/sample.jpg)
+![DreamJournal Demo](samples/sample.jpg)
 
 ---
 
@@ -903,7 +903,7 @@ Remember, every great achievement begins with a dream. We're excited to see wher
 
 *"Dreams are the touchstones of our characters." - Henry David Thoreau*
 
-**The DreamSense Team**  
+**The Dream Journal Team**  
 *Fahad Abdullah, Asma Zubair & Waqar Ali*
 
 *Making dreams meaningful, one night at a time.* 🌙💭
