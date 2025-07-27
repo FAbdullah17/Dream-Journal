@@ -825,3 +825,85 @@ export const DreamInput: React.FC<DreamInputProps> = ({ onSubmit, isLoading }) =
                     >
                       ×
                     </button>
+
+## Future Enhancements
+
+We have exciting plans for DreamSense to make it even more powerful and user-friendly. Here's what's coming in future releases:
+
+### Upcoming Features
+
+#### Version 1.1.0 - Q4 2025
+- **Advanced Dream Pattern Recognition**: Enhanced AI algorithms for deeper dream analysis and pattern detection
+- **Voice-to-Text Dream Recording**: Record your dreams using voice commands for faster entry
+- **Dream Mood Tracking**: Correlation between daily mood and dream patterns
+- **Social Dream Sharing**: Anonymously share interesting dreams with the community
+- **Lucid Dreaming Training**: Guided exercises and techniques for lucid dream development
+
+#### Version 1.2.0 - Q1 2026
+- **VR Dream Visualization**: Immersive virtual reality experience for dream recreation
+- **Sleep Quality Integration**: Connect with popular fitness trackers and sleep monitoring devices
+- **Dream Prediction Models**: AI-powered predictions of potential dream themes based on daily activities
+- **Multi-Device Synchronization**: Seamless sync across mobile, tablet, and desktop platforms
+- **Professional Therapist Integration**: Connect with certified dream therapists for professional guidance
+
+#### Long-term Vision
+- **Dream-Based Meditation**: Personalized meditation sessions based on dream patterns
+- **Dream Journal Collaboration**: Share and collaborate on dream journals with family or therapists
+- **Advanced Analytics Dashboard**: Comprehensive insights with detailed charts and trend analysis
+- **API for Researchers**: Public API for academic research on dream patterns and sleep studies
+- **Mobile App Enhancement**: Native iOS and Android applications with offline capabilities
+- **Multi-language Dream Analysis**: Support for dream interpretation in 20+ languages
+- **Dream Symbol Recognition**: Image recognition for dream sketches and symbols
+- **Integration with Health Apps**: Connect with Apple Health, Google Fit, and other wellness platforms
+
+### Research & Development
+- **Neurological Pattern Mapping**: Collaboration with sleep research institutions
+- **Dream Content Categorization**: Advanced machine learning for dream theme classification
+- **Personalized Dream Insights**: AI-driven personal dream interpretation models
+- **Sleep Disorder Detection**: Early warning systems for potential sleep-related issues
+
+## Contributors
+
+We extend our heartfelt gratitude to all the amazing individuals who have contributed to making DreamSense a reality:
+
+### Core Development Team
+
+**Fahad Abdullah** - *AI Engineer*
+- Core Logics and Model Development
+- Agents and Workflow Development
+
+**Waqar Ali** - *Frontend Developer*
+- User interface design and frontend development
+- Frontend Logics and infrastructure
+
+**Asma Zubair** - *Backend Developer*
+- Backend API development and database design
+- integration of all the workflows together
+
+### Special Thanks
+We also acknowledge the valuable contributions from beta testers, community members, and everyone who provided feedback during the development process. Your insights and suggestions have been instrumental in shaping DreamSense into what it is today.
+
+---
+
+## 🌟 Best Wishes
+
+As we continue this incredible journey with DreamSense, we want to express our deepest appreciation to everyone who has been part of this project. Dreams have always been a fascinating window into our subconscious minds, and we're honored to create a platform that helps people explore and understand their inner worlds.
+
+**To our users**: May your dreams be vivid, your insights profound, and your journey of self-discovery through DreamSense be truly enriching. We hope this platform becomes a trusted companion in your quest to understand the mysteries of your sleeping mind.
+
+**To our contributors and community**: Thank you for believing in our vision and contributing your time, skills, and passion. Your dedication has transformed an idea into a meaningful tool that touches lives around the world.
+
+**To future dreamers**: We invite you to join us in this exciting adventure. Whether you're a developer, designer, researcher, or simply someone fascinated by dreams, there's a place for you in the DreamSense community.
+
+Remember, every great achievement begins with a dream. We're excited to see where this journey takes us next, and we're grateful to have you along for the ride.
+
+*Sweet dreams and happy coding!* ✨
+
+---
+
+*"Dreams are the touchstones of our characters." - Henry David Thoreau*
+
+**The DreamSense Team**  
+*Fahad Abdullah, Asma Zubair & Waqar Ali*
+
+*Making dreams meaningful, one night at a time.* 🌙💭
