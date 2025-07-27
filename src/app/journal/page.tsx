@@ -371,6 +371,16 @@ export default function JournalPage() {
                   )}
                 </div>
 
+                {/* More Details Button */}
+                <div className="flex justify-center mb-4">
+                  <button
+                    onClick={() => setSelectedEntry(entry)}
+                    className="bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white font-semibold py-2 px-6 rounded-full shadow transition-all text-sm flex items-center gap-2"
+                  >
+                    More Details <span className="text-sm">✨</span>
+                  </button>
+                </div>
+
                 {/* Dream Profile */}
                 {entry.dreamProfile && (
                   <div className="bg-pink-50 p-2 rounded-lg mb-3">
@@ -393,6 +403,136 @@ export default function JournalPage() {
           </AnimatePresence>
         </div>
       </div>
+
+      {/* Modal for Full Dream Details */}
+      <AnimatePresence>
+        {selectedEntry && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-gradient-to-br from-blue-200/80 via-purple-200/80 to-pink-200/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedEntry(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, y: 50 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.8, y: 50 }}
+              className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[80vh] overflow-y-auto p-8 relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedEntry(null)}
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl p-2"
+              >
+                ✕
+              </button>
+
+              {/* Modal Content */}
+              <div className="space-y-6">
+                {/* Header */}
+                <div className="flex justify-between items-start mb-6">
+                  <div>
+                    <h2 className="text-2xl font-bold text-purple-700 mb-2">
+                      Dream Details 💭
+                    </h2>
+                    <div className="flex items-center gap-4 text-sm">
+                      <span className="text-blue-700 font-semibold">
+                        {selectedEntry.date}
+                      </span>
+                      <span className="text-xl">
+                        {moods.find((m) => m.value === selectedEntry.mood)?.label}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Dream Text */}
+                <div className="bg-purple-50 p-4 rounded-xl">
+                  <h3 className="font-semibold text-purple-700 mb-2">Your Dream:</h3>
+                  <div className="font-[cursive] text-lg text-blue-900">
+                    {selectedEntry.dream}
+                  </div>
+                </div>
+
+                {/* Symbols */}
+                {selectedEntry.symbols && selectedEntry.symbols.length > 0 && (
+                  <div>
+                    <h3 className="font-semibold text-purple-700 mb-2">Symbols Found:</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedEntry.symbols.map((symbol: string, idx: number) => (
+                        <span
+                          key={idx}
+                          className="bg-purple-200 text-purple-800 px-3 py-1 rounded-full text-sm"
+                        >
+                          {symbol}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Interpretations */}
+                <div className="space-y-4">
+                  {selectedEntry.interpretation?.emotional && (
+                    <div className="bg-blue-50 p-4 rounded-xl">
+                      <h3 className="font-semibold text-blue-700 mb-2 flex items-center gap-2">
+                        💙 Emotional Interpretation
+                      </h3>
+                      <p className="text-blue-900">{selectedEntry.interpretation.emotional}</p>
+                    </div>
+                  )}
+
+                  {selectedEntry.interpretation?.psychological && (
+                    <div className="bg-green-50 p-4 rounded-xl">
+                      <h3 className="font-semibold text-green-700 mb-2 flex items-center gap-2">
+                        🧠 Psychological Interpretation
+                      </h3>
+                      <p className="text-green-900">{selectedEntry.interpretation.psychological}</p>
+                    </div>
+                  )}
+
+                  {selectedEntry.interpretation?.cultural && (
+                    <div className="bg-indigo-50 p-4 rounded-xl">
+                      <h3 className="font-semibold text-indigo-700 mb-2 flex items-center gap-2">
+                        🌍 Cultural Interpretation
+                      </h3>
+                      <p className="text-indigo-900">{selectedEntry.interpretation.cultural}</p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Dream Profile */}
+                {selectedEntry.dreamProfile && (
+                  <div className="bg-pink-50 p-4 rounded-xl">
+                    <h3 className="font-semibold text-pink-700 mb-2">🌸 Dream Profile</h3>
+                    <div className="space-y-2">
+                      <p><span className="font-medium">Overall Mood:</span> {selectedEntry.dreamProfile.overall_mood}</p>
+                      <p><span className="font-medium">Mental State:</span> {selectedEntry.dreamProfile.mental_state}</p>
+                      {selectedEntry.dreamProfile.emotions && (
+                        <p><span className="font-medium">Emotions:</span> {selectedEntry.dreamProfile.emotions.join(', ')}</p>
+                      )}
+                      {selectedEntry.dreamProfile.possible_real_life_cause && (
+                        <p><span className="font-medium">Possible Cause:</span> {selectedEntry.dreamProfile.possible_real_life_cause}</p>
+                      )}
+                      <p><span className="font-medium">Confidence:</span> {Math.round(selectedEntry.dreamProfile.confidence_score * 100)}%</p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Lucid Coach */}
+                {selectedEntry.lucidCoach && (
+                  <div className="bg-yellow-50 p-4 rounded-xl">
+                    <h3 className="font-semibold text-yellow-700 mb-2">🌙 Lucid Dreaming Coach</h3>
+                    <div className="text-yellow-900 whitespace-pre-line">{selectedEntry.lucidCoach}</div>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
