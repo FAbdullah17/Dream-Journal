@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+langchain
+langgraph
+spacy
+pandas
+python-dotenv
+httpx
+groq
+Pillow
+aiofiles
+uuid
+pydantic
