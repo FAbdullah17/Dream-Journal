@@ -16,6 +16,8 @@ export default function JournalPage() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<any>(null);
   const [selectedEntry, setSelectedEntry] = useState<any>(null);
+  const [showDreamProfile, setShowDreamProfile] = useState(false);
+  const [showLucidCoach, setShowLucidCoach] = useState(false);
   const [diary, setDiary] = useState<
     {
       date: string;
@@ -187,36 +189,76 @@ export default function JournalPage() {
 
               {/* Dream Profile */}
               {result.dream_profile && (
-                <div className="bg-pink-50 p-3 rounded-lg">
-                  <h4 className="font-semibold text-pink-700 mb-2">
-                    🌸 Dream Profile
-                  </h4>
-                  <div className="text-sm space-y-1">
-                    <p>
-                      <span className="font-medium">Overall Mood:</span>{" "}
-                      {result.dream_profile.overall_mood}
-                    </p>
-                    <p>
-                      <span className="font-medium">Mental State:</span>{" "}
-                      {result.dream_profile.mental_state}
-                    </p>
-                    <p>
-                      <span className="font-medium">Confidence:</span>{" "}
-                      {Math.round(result.dream_profile.confidence_score * 100)}%
-                    </p>
-                  </div>
+                <div className="bg-pink-50 rounded-lg overflow-hidden">
+                  <button
+                    onClick={() => setShowDreamProfile(!showDreamProfile)}
+                    className="w-full flex items-center justify-between p-3 hover:bg-pink-100 transition-colors"
+                  >
+                    <h4 className="font-semibold text-pink-700 flex items-center gap-2">
+                      🌸 Dream Profile
+                    </h4>
+                    <span className={`text-pink-700 transform transition-transform ${showDreamProfile ? 'rotate-180' : ''}`}>
+                      ▼
+                    </span>
+                  </button>
+                  <AnimatePresence>
+                    {showDreamProfile && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="px-3 pb-3"
+                      >
+                        <div className="text-sm space-y-1">
+                          <p>
+                            <span className="font-medium">Overall Mood:</span>{" "}
+                            {result.dream_profile.overall_mood}
+                          </p>
+                          <p>
+                            <span className="font-medium">Mental State:</span>{" "}
+                            {result.dream_profile.mental_state}
+                          </p>
+                          <p>
+                            <span className="font-medium">Confidence:</span>{" "}
+                            {Math.round(result.dream_profile.confidence_score * 100)}%
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               )}
 
               {/* Lucid Coach */}
               {result.lucid_coach && (
-                <div className="bg-yellow-50 p-3 rounded-lg">
-                  <h4 className="font-semibold text-yellow-700 mb-2">
-                    🌙 Lucid Dreaming Coach
-                  </h4>
-                  <div className="text-sm text-yellow-900 whitespace-pre-line">
-                    {result.lucid_coach}
-                  </div>
+                <div className="bg-yellow-50 rounded-lg overflow-hidden">
+                  <button
+                    onClick={() => setShowLucidCoach(!showLucidCoach)}
+                    className="w-full flex items-center justify-between p-3 hover:bg-yellow-100 transition-colors"
+                  >
+                    <h4 className="font-semibold text-yellow-700 flex items-center gap-2">
+                      🌙 Lucid Dreaming Coach
+                    </h4>
+                    <span className={`text-yellow-700 transform transition-transform ${showLucidCoach ? 'rotate-180' : ''}`}>
+                      ▼
+                    </span>
+                  </button>
+                  <AnimatePresence>
+                    {showLucidCoach && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="px-3 pb-3"
+                      >
+                        <div className="text-sm text-yellow-900 whitespace-pre-line">
+                          {result.lucid_coach}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               )}
 
