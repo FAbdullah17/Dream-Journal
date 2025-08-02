@@ -825,6 +825,8 @@ export const DreamInput: React.FC<DreamInputProps> = ({ onSubmit, isLoading }) =
                     >
                       ×
                     </button>
+```
+
 
 ## Future Enhancements
 
@@ -907,3 +909,4 @@ Remember, every great achievement begins with a dream. We're excited to see wher
 *Fahad Abdullah, Asma Zubair & Waqar Ali*
 
 *Making dreams meaningful, one night at a time.* 🌙💭
+
